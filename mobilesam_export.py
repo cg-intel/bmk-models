@@ -37,7 +37,7 @@ def export_prompt_decoder_onnx(checkpoint, model_type, mode_path):
         "point_labels": torch.randint(low=0, high=4, size=(1, 5), dtype=torch.float),
         "mask_input": torch.randn(1, 1, 256, 256),
         "has_mask_input": torch.tensor([1], dtype=torch.float),
-        "orig_im_size": torch.tensor([1024, 1024], dtype=torch.float),
+        "orig_im_size": torch.tensor([1024, 1024], dtype=torch.int64),
     }
 
     torch.onnx.export(
